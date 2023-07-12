@@ -13,6 +13,33 @@
         android:theme="@style/Theme.FirstStep"
         tools:targetApi="31">
         <activity
+            android:name=".userinfo"
+            android:exported="false" />
+        <activity
+            android:name=".usermanagement"
+            android:exported="false" />
+        <activity
+            android:name=".aboutapp"
+            android:exported="false" />
+        <activity
+            android:name=".termsofuse"
+            android:exported="false" />
+        <activity
+            android:name=".account"
+            android:exported="false" />
+        <activity
+            android:name=".settings"
+            android:exported="false" />
+        <activity
+            android:name=".calendar"
+            android:exported="false" />
+        <activity
+            android:name=".goalsetting"
+            android:exported="false" />
+        <activity
+            android:name=".ranking"
+            android:exported="false" />
+        <activity
             android:name=".timer"
             android:exported="false" />
         <activity
