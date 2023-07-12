@@ -7,7 +7,7 @@
 
 <br>
 	
-# FirePotapos_Backend Notify	
+# FirePotapos_Frontend Notify	
  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=black">
 
 	
