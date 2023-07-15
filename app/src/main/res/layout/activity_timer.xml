@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".timer">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:text="00:00"
+        android:textSize="60sp"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="258dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
