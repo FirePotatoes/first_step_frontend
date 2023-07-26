@@ -20,7 +20,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:addStatesFromChildren="false"
             android:orientation="vertical">
 
             <TextView
@@ -32,29 +33,42 @@
                 android:text="나의 목표"
                 android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/btn_addgoal"
-                android:layout_width="117dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:text="목표 추가" />
-
-            <TextView
-                android:id="@+id/todoTitleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="오늘의 todo list"
-                android:textSize="24sp" />
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:hint=""
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/todoTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="오늘의 todo list"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/id_todolist0"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:hint=""
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:id=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" " />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="투두 추가" />
 
             <!-- <android.recyclerview.widget.RecyclerView
                  android:id="@+id/recycleriew"
@@ -74,6 +88,6 @@
 
         </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
