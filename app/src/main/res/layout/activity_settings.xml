@@ -6,4 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".settings">
 
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="캘린더"
+        app:layout_constraintEnd_toStartOf="@+id/btn_timer"
+        app:layout_constraintStart_toStartOf="@+id/space2"
+        app:layout_constraintTop_toTopOf="@+id/btn_timer" />
+
+    <Button
+        android:id="@+id/btn_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="타이머"
+        app:layout_constraintBottom_toBottomOf="@+id/space2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/space2" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="설정"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_timer"
+        app:layout_constraintTop_toTopOf="@+id/btn_timer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
