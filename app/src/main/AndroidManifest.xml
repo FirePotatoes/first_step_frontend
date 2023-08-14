@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstStep"
         tools:targetApi="31">
+
         <activity
             android:name=".userinfo"
             android:exported="false" />
@@ -41,25 +42,22 @@
             android:exported="false" />
         <activity
             android:name=".timer"
-            android:exported="true">
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".signup"
             android:exported="false" />
         <activity
             android:name=".login"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
