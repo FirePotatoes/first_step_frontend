@@ -20,7 +20,6 @@
 
 
     <EditText
-        android:id="@+id/id_todolist0"
         android:layout_width="220dp"
         android:layout_height="34dp"
         android:layout_marginHorizontal="60dp"
@@ -29,18 +28,9 @@
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="429dp" />
 
-    <EditText
-        android:id="@+id/id_todolist0"
-        android:layout_width="175dp"
-        android:layout_height="39dp"
-        android:layout_marginHorizontal="60dp"
-        android:hint=""
-        android:textSize="14sp"
-        tools:layout_editor_absoluteX="188dp"
-        tools:layout_editor_absoluteY="266dp" />
+
 
     <TextView
-        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="예치금"
@@ -61,7 +51,6 @@
         tools:layout_editor_absoluteY="556dp" />
 
     <TextView
-        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="목표 기간"
@@ -80,7 +69,6 @@
         tools:layout_editor_absoluteY="579dp" />
 
     <EditText
-        android:id="@+id/id_todolist0"
         android:layout_width="255dp"
         android:layout_height="34dp"
         android:layout_marginHorizontal="60dp"
@@ -98,7 +86,6 @@
         tools:layout_editor_absoluteY="483dp" />
 
     <TextView
-        android:id="@+id/textView17"
         android:layout_width="325dp"
         android:layout_height="55dp"
         android:text="입금계좌: 기업은행\n1111223333444 불타는 감자들"
@@ -108,14 +95,22 @@
         tools:layout_editor_absoluteY="501dp" />
 
     <EditText
-        android:id="@+id/id_todolist0"
-        android:layout_width="230dp"
-        android:layout_height="32dp"
+        android:layout_width="187dp"
+        android:layout_height="38dp"
         android:layout_marginHorizontal="60dp"
         android:hint=""
         android:textSize="14sp"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="189dp" />
+
+
+    <ImageButton
+        android:id="@+id/goalsettingdayBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        tools:layout_editor_absoluteX="322dp"
+        tools:layout_editor_absoluteY="176dp" />
 
     <TextView
         android:id="@+id/textView15"
@@ -171,12 +166,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="667dp" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="52dp" />
+
+    <Spinner
+        android:id="@+id/categoryComboBox"
+        android:layout_width="214dp"
+        android:layout_height="31dp"
+        android:layout_weight="1"
+        android:spinnerMode="dropdown"
+        android:text="-선택해주세요"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="272dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

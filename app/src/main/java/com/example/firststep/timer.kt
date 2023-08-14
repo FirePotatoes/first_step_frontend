@@ -88,6 +88,8 @@ class timer(period: Int) : AppCompatActivity() , View.OnClickListener {
         isRunning = false
         timer?.cancel()
 
+
+
     }
 
     private fun refresh(){
