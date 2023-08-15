@@ -9,16 +9,22 @@ class login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        fun settingButton() {
-            val button = findViewById<Button>(R.id.btnGoSignupActivity)
+        loginToSignupButton()
+        loginToTimerButton()
+    }
+        fun loginToSignupButton() {
+            val button = findViewById<Button>(R.id.btn_GoSignupActivity)
             button.setOnClickListener {
-                //signup activity로 이동
                 val intent = Intent(this,signup::class.java)
                 startActivity(intent)
             }
         }
 
-
+    fun loginToTimerButton() {
+        val button = findViewById<Button>(R.id.btn_login)
+        button.setOnClickListener {
+            val intent = Intent(this,timerActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

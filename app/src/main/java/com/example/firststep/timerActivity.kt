@@ -8,7 +8,7 @@ import android.widget.TextView
 import java.util.Timer
 import kotlin.concurrent.timer
 
-class timer(period: Int) : AppCompatActivity() , View.OnClickListener {
+class timerActivity(period: Int) : AppCompatActivity() , View.OnClickListener {
 
     private lateinit var btn_start : Button
     private lateinit var btn_refresh : Button
