@@ -41,7 +41,7 @@
             android:name=".ranking"
             android:exported="false" />
         <activity
-            android:name=".timer"
+            android:name=".timerActivity"
             android:exported="false" />
         <activity
             android:name=".signup"
