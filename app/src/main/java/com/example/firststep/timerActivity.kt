@@ -1,5 +1,6 @@
 package com.example.firststep
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,7 +9,7 @@ import android.widget.TextView
 import java.util.Timer
 import kotlin.concurrent.timer
 
-class timerActivity(period: Int) : AppCompatActivity() , View.OnClickListener {
+class timerActivity : AppCompatActivity() , View.OnClickListener {
 
     private lateinit var btn_start : Button
     private lateinit var btn_refresh : Button
@@ -33,6 +34,24 @@ class timerActivity(period: Int) : AppCompatActivity() , View.OnClickListener {
         btn_start.setOnClickListener(this)
         btn_refresh.setOnClickListener(this)
 
+
+        timerToCalendarButton()
+        timerToSettings()
+    }
+
+    private fun timerToCalendarButton() {
+        val button = findViewById<Button>(R.id.btn_calendar)
+        button.setOnClickListener {
+            val intent = Intent(this,calendar::class.java)
+            startActivity(intent)
+        }
+    }
+    private fun timerToSettings() {
+        val button = findViewById<Button>(R.id.btn_settings)
+        button.setOnClickListener {
+            val intent = Intent(this,settings::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(view: View?){
@@ -54,7 +73,7 @@ class timerActivity(period: Int) : AppCompatActivity() , View.OnClickListener {
 
     private fun start(){
         btn_start.text = getString(R.string.btn_pause)
-        btn_start.setBackgroundColor(getColor(R.color.btn_pause))
+        btn_start.setBackgroundColor(getColor(R.color.button))
         isRunning = true
 
         timer = timer(period = 10){
@@ -83,7 +102,7 @@ class timerActivity(period: Int) : AppCompatActivity() , View.OnClickListener {
 
     private fun pause(){
         btn_start.text = getString(R.string.btn_start)
-        btn_start.setBackgroundColor(getColor(R.color.btn_start))
+        btn_start.setBackgroundColor(getColor(R.color.button))
 
         isRunning = false
         timer?.cancel()

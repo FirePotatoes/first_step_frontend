@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstStep"
         tools:targetApi="31">
-
+        <activity
+            android:name=".emptytimer"
+            android:exported="false" />
         <activity
             android:name=".userinfo"
             android:exported="false" />
@@ -48,7 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
