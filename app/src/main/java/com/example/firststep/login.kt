@@ -10,9 +10,9 @@ class login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         loginToSignupButton()
-        loginToTimerButton()
+        loginToEmptyTimerButton()
     }
-        fun loginToSignupButton() {
+        private fun loginToSignupButton() {
             val button = findViewById<Button>(R.id.btn_GoSignupActivity)
             button.setOnClickListener {
                 val intent = Intent(this,signup::class.java)
@@ -20,10 +20,10 @@ class login : AppCompatActivity() {
             }
         }
 
-    fun loginToTimerButton() {
+    private fun loginToEmptyTimerButton() {
         val button = findViewById<Button>(R.id.btn_login)
         button.setOnClickListener {
-            val intent = Intent(this,timerActivity::class.java)
+            val intent = Intent(this,emptytimer::class.java)
             startActivity(intent)
         }
     }

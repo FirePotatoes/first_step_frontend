@@ -3,7 +3,6 @@ package com.example.firststep
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-
 import android.annotation.SuppressLint
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -22,7 +21,7 @@ class calendar : AppCompatActivity() {
     var userID: String = "userID"
     lateinit var fname: String
     lateinit var str: String
-    lateinit var calendarView: CalendarView
+    lateinit var CalendarView: CalendarView
     lateinit var updateBtn: Button
     lateinit var deleteBtn:Button
     lateinit var saveBtn:Button
@@ -35,10 +34,10 @@ class calendar : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_calendar)
 
         // UI값 생성
-        calendarView=findViewById(R.id.calendarView)
+        CalendarView=findViewById(R.id.CalendarView)
         diaryTextView=findViewById(R.id.diaryTextView)
         saveBtn=findViewById(R.id.saveBtn)
         deleteBtn=findViewById(R.id.deleteBtn)
@@ -49,7 +48,7 @@ class calendar : AppCompatActivity() {
 
         title.text = "달력 일기장"
 
-        calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+        CalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             diaryTextView.visibility = View.VISIBLE
             saveBtn.visibility = View.VISIBLE
             contextEditText.visibility = View.VISIBLE

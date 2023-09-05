@@ -1,25 +1,14 @@
 package com.example.firststep
 
 
-import android.widget.Spinner
-import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.NumberPicker
-import android.widget.TextView
-import android.widget.Toast
-import java.time.Month
-import java.time.Year
+import com.example.firststep.R.id.btn_goalsettingcalendar
 import java.util.Calendar
 import java.util.GregorianCalendar
 
@@ -28,8 +17,8 @@ class goalsetting : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goalsetting)
-
-        val goalsettingcalendarButton = findViewById<Button>(R.id.goalsettingcalendarBtn)
+/*
+        val goalsettingcalendarButton = findViewById<Button>(btn_goalsettingcalendar)
 
         var startDate = ""
 
@@ -52,10 +41,20 @@ class goalsetting : AppCompatActivity() {
                     Log.d("day : ", startDate)
                 }
             }, year, month, day)
-            dlg.show()
+
+        }
+*/
+        goalsettingToTimeractivity()
+    }
+    private fun goalsettingToTimeractivity() {
+        val button = findViewById<Button>(R.id.btn_goalsettingcomplete)
+        button.setOnClickListener {
+            val intent = Intent(this,timerActivity::class.java)
+            startActivity(intent)
         }
     }
 }
+
 
 
 
