@@ -10,6 +10,7 @@
     <color name="btn_calendar">#E91E63</color>
     <color name="button">#E91E63</color>
     <color name= "text">#FF0000</color>
+    <color name= "red">#FFD700</color>
 
 
     //android:backgroundTint="@color/button"
