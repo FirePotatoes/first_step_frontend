@@ -3,24 +3,26 @@ package com.example.firststep
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import java.util.Calendar
 import java.util.Timer
 import kotlin.concurrent.timer
 
-class timerActivity : AppCompatActivity() , View.OnClickListener {
+class timerActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var btn_start : Button
-    private lateinit var btn_refresh : Button
-    private lateinit var tv_minute : TextView
-    private lateinit var tv_second : TextView
-    private lateinit var tv_millisecond : TextView
+    private lateinit var btn_start: Button
+    private lateinit var btn_refresh: Button
+    private lateinit var tv_minute: TextView
+    private lateinit var tv_second: TextView
+    private lateinit var tv_millisecond: TextView
 
     private var isRunning = false
+    private var timer: Timer? = null
+    private var time = 0
 
-    private var timer : Timer? = null
-    private var time =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
@@ -34,7 +36,6 @@ class timerActivity : AppCompatActivity() , View.OnClickListener {
         btn_start.setOnClickListener(this)
         btn_refresh.setOnClickListener(this)
 
-
         timerToCalendarButton()
         timerToSettings()
     }
@@ -42,25 +43,25 @@ class timerActivity : AppCompatActivity() , View.OnClickListener {
     private fun timerToCalendarButton() {
         val button = findViewById<Button>(R.id.btn_calendar)
         button.setOnClickListener {
-            val intent = Intent(this,calendar::class.java)
-            startActivity(intent)
-        }
-    }
-    private fun timerToSettings() {
-        val button = findViewById<Button>(R.id.btn_settings)
-        button.setOnClickListener {
-            val intent = Intent(this,settings::class.java)
+            val intent = Intent(this, Calendar::class.java)
             startActivity(intent)
         }
     }
 
-    override fun onClick(view: View?){
-        when(view?.id){
+    private fun timerToSettings() {
+        val button = findViewById<Button>(R.id.btn_settings)
+        button.setOnClickListener {
+            val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
             R.id.btn_start -> {
-                if(isRunning){
+                if (isRunning) {
                     pause()
-                }
-                else{
+                } else {
                     start()
                 }
             }
@@ -71,59 +72,50 @@ class timerActivity : AppCompatActivity() , View.OnClickListener {
         }
     }
 
-    private fun start(){
+    private fun start() {
         btn_start.text = getString(R.string.btn_pause)
         btn_start.setBackgroundColor(getColor(R.color.button))
         isRunning = true
 
-        timer = timer(period = 10){
-            // 1000ms = 1s
-            // 0.01 time 1+
+        timer = timer(period = 10) {
+            // Update UI
             time++
 
-            val milli_second = time%100
+            val milli_second = time % 100
             val second = (time % 6000) / 100
-            val minute = time/6000
+            val minute = time / 6000
 
-            runOnUiThread{
-
-                if(isRunning){
-                    tv_millisecond.text = if (milli_second < 10) ".0${milli_second}" else ".${milli_second}"
-                    tv_second.text = if(second<10) ":0${second}" else  ":${second}"
-                    tv_minute.text = "${minute}"
+            runOnUiThread {
+                if (isRunning) {
+                    // Update TextViews
                 }
-
             }
-
-
         }
-
     }
 
-    private fun pause(){
+    private fun pause() {
         btn_start.text = getString(R.string.btn_start)
         btn_start.setBackgroundColor(getColor(R.color.button))
 
         isRunning = false
         timer?.cancel()
-
-
-
     }
 
-    private fun refresh(){
+    private fun refresh() {
         timer?.cancel()
 
         btn_start.text = getString(R.string.btn_start)
         btn_start.setBackgroundColor(getColor(R.color.btn_start))
         isRunning = false
 
-        time =0
+        time = 0
         tv_millisecond.text = ",00"
         tv_second.text = ":00"
         tv_minute.text = "00"
-
     }
 
-
+    override fun onDestroy() {
+        timer?.cancel()
+        super.onDestroy()
+    }
 }
