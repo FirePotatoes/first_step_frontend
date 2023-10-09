@@ -12,13 +12,13 @@ class login : AppCompatActivity() {
         loginToSignupButton()
         loginToEmptyTimerButton()
     }
-        private fun loginToSignupButton() {
-            val button = findViewById<Button>(R.id.btn_GoSignupActivity)
-            button.setOnClickListener {
-                val intent = Intent(this,signup::class.java)
-                startActivity(intent)
-            }
+    private fun loginToSignupButton() {
+        val button = findViewById<Button>(R.id.btn_GoSignupActivity)
+        button.setOnClickListener {
+            val intent = Intent(this,signup::class.java)
+            startActivity(intent)
         }
+    }
 
     private fun loginToEmptyTimerButton() {
         val button = findViewById<Button>(R.id.btn_login)
