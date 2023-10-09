@@ -10,80 +10,168 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:text="회 원 가 입"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="이름"
-        android:inputType="text"
+    <Button
+        android:id="@+id/btn_IdCheck"
+        android:layout_width="115dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="중복확인"
+        android:textColor="@color/purple"
+        android:textSize="17dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/idText"
+        app:layout_constraintTop_toTopOf="@+id/idText" />
+
+    <EditText
+        android:id="@+id/idText"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:drawableStart="@drawable/icon_person"
+        android:drawableLeft="@drawable/icon_person"
+        android:hint=" 아이디"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="wrap_content"
+        android:id="@+id/passwordText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="아이디"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="비밀번호"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" 비밀번호"
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_lock"
+        android:drawableLeft="@drawable/icon_lock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/idText" />
 
     <EditText
-        android:id="@+id/editTextText4"
-        android:layout_width="wrap_content"
+        android:id="@+id/emailText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="닉네임"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" 이메일"
+        android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_email"
+        android:drawableLeft="@drawable/icon_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" 이름(본명)"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_name"
+        android:drawableLeft="@drawable/icon_name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
+        android:id="@+id/nicknameText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="이메일"
-        android:inputType="textEmailAddress"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" 닉네임"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_nick"
+        android:drawableLeft="@drawable/icon_nick"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/bankText"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/icon_wallet"
+        android:drawableLeft="@drawable/icon_wallet"
+        android:gravity="center_vertical"
+        android:hint=" 계좌번호"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameText" />
+
+
+    <Spinner
+        android:id="@+id/bankSpinner"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bankText"
+        app:layout_constraintTop_toBottomOf="@+id/nicknameText" />
+
+
+    <EditText
+        android:id="@+id/bankAccountText"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:hint=" 계좌번호 입력"
+        android:inputType="number"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bankText" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="회원가입"
+        android:backgroundTint="@color/toomyeong"
+        android:textColor="@color/purple"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="10dp"
+        android:text="가입하기"
+        android:textStyle="bold|bold|bold|bold"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/bankAccountText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

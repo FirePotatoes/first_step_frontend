@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="toomyeong">#00FFFFFF</color>
+
 
 
     <color name="btn_start">#000000</color>
@@ -12,9 +14,12 @@
     <color name= "text">#FF0000</color>
     <color name= "red">#FFD700</color>
     <color name= "grey">#858585</color>
+    <color name= "blue">#0000FF</color>
+    <color name= "purple">#8465F3</color>
 
 
 
-    //android:backgroundTint="@color/button"
+
+<!--    android:backgroundTint="@color/button"-->
 
 </resources>
