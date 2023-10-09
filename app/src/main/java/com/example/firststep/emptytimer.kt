@@ -36,6 +36,9 @@ class emptytimer : AppCompatActivity() {
         val selectedVerse = bibleVerses[dayOfYear % bibleVerses.size]
         textViewVerse.text = "$selectedVerse"
 
+        goCalendarButton()
+        goSettingsButton()
+        goTimerButton()
     }
 
     private fun getDayOfYear(): Int {
@@ -54,6 +57,30 @@ class emptytimer : AppCompatActivity() {
         val button = findViewById<Button>(R.id.btn_goalAdd)
         button.setOnClickListener {
             val intent = Intent(this, goalsetting::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goSettingsButton() {
+        val button = findViewById<Button>(R.id.btn_settings)
+        button.setOnClickListener {
+            val intent = Intent(this,settings::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goTimerButton() {
+        val button = findViewById<Button>(R.id.btn_timer)
+        button.setOnClickListener {
+            val intent = Intent(this,timerActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goCalendarButton() {
+        val button = findViewById<Button>(R.id.btn_calendar)
+        button.setOnClickListener {
+            val intent = Intent(this,calendar::class.java)
             startActivity(intent)
         }
     }

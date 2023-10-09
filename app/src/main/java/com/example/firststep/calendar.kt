@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import java.io.FileInputStream
 import java.io.FileOutputStream
 
@@ -13,8 +14,6 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
 import android.widget.TextView
-
-
 
 
 class calendar : AppCompatActivity() {
@@ -70,7 +69,36 @@ class calendar : AppCompatActivity() {
             diaryContent.text = str
             diaryContent.visibility = View.VISIBLE
         }
+        goCalendarButton()
+        goSettingsButton()
+        goTimerButton()
     }
+
+
+
+private fun goSettingsButton() {
+    val button = findViewById<Button>(R.id.btn_settings)
+    button.setOnClickListener {
+        val intent = Intent(this,settings::class.java)
+        startActivity(intent)
+    }
+}
+
+private fun goTimerButton() {
+    val button = findViewById<Button>(R.id.btn_timer)
+    button.setOnClickListener {
+        val intent = Intent(this,timerActivity::class.java)
+        startActivity(intent)
+    }
+}
+
+private fun goCalendarButton() {
+    val button = findViewById<Button>(R.id.btn_calendar)
+    button.setOnClickListener {
+        val intent = Intent(this,calendar::class.java)
+        startActivity(intent)
+    }
+}
 
     // 달력 내용 조회, 수정
     fun checkDay(cYear: Int, cMonth: Int, cDay: Int, userID: String) {
