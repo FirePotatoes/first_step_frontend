@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints,RtlCompat"
         android:gravity="start|left"
-        android:background="@drawable/textbox_border"/>
+        android:background="@drawable/boxborder"/>
 
     <TextView
         android:id="@+id/textViewDate"
