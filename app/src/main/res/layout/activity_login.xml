@@ -9,13 +9,17 @@
 
     <!-- 아이디 입력 -->
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/idText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="아이디"
+        android:hint=" 아이디"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_person"
+        android:drawableLeft="@drawable/icon_person"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,29 +27,37 @@
 
     <!-- 비밀번호 입력 -->
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/passwordText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="비밀번호"
+        android:hint=" 비밀번호"
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:drawableStart="@drawable/icon_lock"
+        android:drawableLeft="@drawable/icon_lock"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/idText" />
 
     <!-- 로그인 버튼과 회원가입 버튼을 체인으로 묶음 -->
+
+    <!-- 제목 텍스트 -->
+
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:backgroundTint="@color/text"
+        android:layout_width="120dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="208dp"
+        android:backgroundTint="@color/toomyeong"
         android:text="로그인"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_GoSignupActivity"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -53,15 +65,14 @@
         android:id="@+id/btn_GoSignupActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:backgroundTint="@color/text"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/toomyeong"
+        android:textStyle="bold"
         android:text="회원가입"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/btn_login" />
+        android:textColor="@color/purple"
+        app:layout_constraintEnd_toEndOf="@+id/passwordText"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
-    <!-- 제목 텍스트 -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
