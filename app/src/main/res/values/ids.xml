@@ -2,6 +2,6 @@
 <resources>
     <item name="goalsettingcalendarBtn" type="id" />
     <item name="textViewDate" type="id" />
-    <item name="textViewVerse" type="id" />
+    <item name="bibleView" type="id" />
     <item name="btn_goalAdd" type="id" />
 </resources>
