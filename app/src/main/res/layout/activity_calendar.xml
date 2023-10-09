@@ -169,18 +169,5 @@
         app:layout_constraintStart_toEndOf="@+id/btn_timer"
         app:layout_constraintTop_toTopOf="@+id/bottomBar" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="설정"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,31 +45,31 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         btn_start.setOnClickListener(this)
         btn_refresh.setOnClickListener(this)
 
-        timerToCalendarButton()
-        timerToSettings()
-        timerToRanking()
+        goCalendarButton()
+        goSettingsButton()
+        goTimerButton()
     }
 
-    private fun timerToCalendarButton() {
-        val button = findViewById<Button>(R.id.btn_calendar)
-        button.setOnClickListener {
-            val intent = Intent(this, calendar::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun timerToSettings() {
+    private fun goSettingsButton() {
         val button = findViewById<Button>(R.id.btn_settings)
         button.setOnClickListener {
-            val intent = Intent(this, settings::class.java)
+            val intent = Intent(this,settings::class.java)
             startActivity(intent)
         }
     }
 
-    private fun timerToRanking() {
-        val button = findViewById<Button>(R.id.btn_ranking)
+    private fun goTimerButton() {
+        val button = findViewById<Button>(R.id.btn_timer)
         button.setOnClickListener {
-            val intent = Intent(this, ranking::class.java)
+            val intent = Intent(this,timerActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goCalendarButton() {
+        val button = findViewById<Button>(R.id.btn_calendar)
+        button.setOnClickListener {
+            val intent = Intent(this,calendar::class.java)
             startActivity(intent)
         }
     }
