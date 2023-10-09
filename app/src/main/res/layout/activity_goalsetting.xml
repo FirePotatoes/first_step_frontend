@@ -51,7 +51,7 @@
         android:layout_width="55dp"
         android:layout_height="60dp"
         android:layout_marginStart="170dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="-52dp"
         app:icon="?attr/actionModeCopyDrawable"
         app:iconSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
@@ -61,8 +61,9 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="325dp"
+        android:layout_width="wrap_content"
         android:layout_height="55dp"
+        android:layout_marginEnd="70dp"
         android:text="입금계좌: 기업은행\n1111223333444 버킷랩"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -168,6 +169,7 @@
         android:id="@+id/categoryComboBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="32dp"
         android:layout_weight="1"
