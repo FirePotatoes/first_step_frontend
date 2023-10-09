@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/button11"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button"
         android:text="로그아웃"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,43 +20,58 @@
         app:layout_constraintVertical_bias="0.767" />
 
     <Space
-        android:id="@+id/space2"
-        android:layout_width="412dp"
-        android:layout_height="60dp"
+        android:id="@+id/bottomBar"
+        android:layout_width="411dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="#858585"
+        android:background="@drawable/bar_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btn_calendar"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_horizontal"
         android:text="캘린더"
-        app:layout_constraintEnd_toStartOf="@+id/btn_timer"
-        app:layout_constraintStart_toStartOf="@+id/space2"
-        app:layout_constraintTop_toTopOf="@+id/btn_timer" />
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bottomBar"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar" />
 
     <Button
         android:id="@+id/btn_timer"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_vertical"
         android:text="타이머"
-        app:layout_constraintBottom_toBottomOf="@+id/space2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/space2" />
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/btn_calendar"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintVertical_bias="0.555" />
 
     <Button
         android:id="@+id/btn_settings"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_vertical"
         android:text="설정"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_timer"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_timer"
-        app:layout_constraintTop_toTopOf="@+id/btn_timer" />
+        app:layout_constraintTop_toTopOf="@+id/bottomBar" />
 
     <TextView
         android:id="@+id/textView18"
@@ -73,10 +88,10 @@
 
     <Button
         android:id="@+id/button7"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="200dp"
+        android:backgroundTint="@color/button"
         android:text="계정관리"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +101,10 @@
 
     <Button
         android:id="@+id/button9"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="200dp"
+        android:backgroundTint="@color/button"
         android:text="이용약관"
         app:layout_constraintBottom_toTopOf="@+id/button10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,9 +114,9 @@
 
     <Button
         android:id="@+id/button10"
-        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button"
         android:text="앱 정보"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
