@@ -53,7 +53,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
     private fun timerToCalendarButton() {
         val button = findViewById<Button>(R.id.btn_calendar)
         button.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
+            val intent = Intent(this, calendar::class.java)
             startActivity(intent)
         }
     }
@@ -61,7 +61,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
     private fun timerToSettings() {
         val button = findViewById<Button>(R.id.btn_settings)
         button.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
+            val intent = Intent(this, settings::class.java)
             startActivity(intent)
         }
     }
@@ -69,7 +69,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
     private fun timerToRanking() {
         val button = findViewById<Button>(R.id.btn_ranking)
         button.setOnClickListener {
-            val intent = Intent(this, Ranking::class.java)
+            val intent = Intent(this, ranking::class.java)
             startActivity(intent)
         }
     }
@@ -98,6 +98,9 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         progressBar.visibility = View.VISIBLE
         progressBar.progress = 0
 
+        val maxTime = 6000
+        // 타이머가 60초 동안 실행되어야 한다면 6000으로 설정 목표 추가에서 설정한 값이 여기로 온다
+
         timer = Timer()
         timer?.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
@@ -107,7 +110,6 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
                 val milli_second = time % 100
                 val second = (time / 100) % 60
                 val minute = (time / 6000) % 60
-                val maxTime = 0
 
                 runOnUiThread  {
                     if (isRunning) {
@@ -124,6 +126,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
             }
         }, 0, 10)
     }
+
 
     private fun pause() {
         btn_start.text = getString(R.string.btn_start)

@@ -17,33 +17,33 @@ class goalsetting : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goalsetting)
-/*
-        val goalsettingcalendarButton = findViewById<Button>(btn_goalsettingcalendar)
+        /*
+                val goalsettingcalendarButton = findViewById<Button>(btn_goalsettingcalendar)
 
-        var startDate = ""
+                var startDate = ""
 
-        goalsettingcalendarButton.setOnClickListener {
-            val today = GregorianCalendar()
-            val year = today.get(Calendar.YEAR)
-            val month = today.get(Calendar.MONTH)
-            val day = today.get(Calendar.DATE)
+                goalsettingcalendarButton.setOnClickListener {
+                    val today = GregorianCalendar()
+                    val year = today.get(Calendar.YEAR)
+                    val month = today.get(Calendar.MONTH)
+                    val day = today.get(Calendar.DATE)
 
-            val dlg = DatePickerDialog(this, object : DatePickerDialog.OnDateSetListener {
-                override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                    TODO("Not yet implemented")
-                    //2021 + 20
-                    //5
-                    //20
+                    val dlg = DatePickerDialog(this, object : DatePickerDialog.OnDateSetListener {
+                        override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                            TODO("Not yet implemented")
+                            //2021 + 20
+                            //5
+                            //20
 
-                    //startDate = "${year} + ${month} + ${dayOfMonth}"
+                            //startDate = "${year} + ${month} + ${dayOfMonth}"
 
-                    startDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
-                    Log.d("day : ", startDate)
+                            startDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
+                            Log.d("day : ", startDate)
+                        }
+                    }, year, month, day)
+
                 }
-            }, year, month, day)
-
-        }
-*/
+        */
         goalsettingToTimeractivity()
     }
     private fun goalsettingToTimeractivity() {
@@ -133,4 +133,3 @@ class goalsetting : AppCompatActivity() {
     }
 
 */
-
