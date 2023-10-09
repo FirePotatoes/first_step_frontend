@@ -3,21 +3,28 @@ package com.example.firststep
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
+import android.service.notification.NotificationListenerService.Ranking
 import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import java.util.Calendar
 import java.util.Timer
-import kotlin.concurrent.timer
+import java.util.TimerTask
 
 class timerActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var btn_start: Button
     private lateinit var btn_refresh: Button
+    private lateinit var btn_ranking: Button
     private lateinit var tv_minute: TextView
     private lateinit var tv_second: TextView
     private lateinit var tv_millisecond: TextView
+    private lateinit var progressBar: ProgressBar
 
     private var isRunning = false
     private var timer: Timer? = null
@@ -33,11 +40,14 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         tv_second = findViewById(R.id.tv_second)
         tv_millisecond = findViewById(R.id.tv_millisecond)
 
+        progressBar = findViewById(R.id.progress_bar)
+
         btn_start.setOnClickListener(this)
         btn_refresh.setOnClickListener(this)
 
         timerToCalendarButton()
         timerToSettings()
+        timerToRanking()
     }
 
     private fun timerToCalendarButton() {
@@ -52,6 +62,14 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         val button = findViewById<Button>(R.id.btn_settings)
         button.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun timerToRanking() {
+        val button = findViewById<Button>(R.id.btn_ranking)
+        button.setOnClickListener {
+            val intent = Intent(this, Ranking::class.java)
             startActivity(intent)
         }
     }
@@ -74,28 +92,42 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun start() {
         btn_start.text = getString(R.string.btn_pause)
-        btn_start.setBackgroundColor(getColor(R.color.button))
+        btn_start.setBackgroundColor(ContextCompat.getColor(this, R.color.button))
         isRunning = true
 
-        timer = timer(period = 10) {
-            // Update UI
-            time++
+        progressBar.visibility = View.VISIBLE
+        progressBar.progress = 0
 
-            val milli_second = time % 100
-            val second = (time % 6000) / 100
-            val minute = time / 6000
+        timer = Timer()
+        timer?.scheduleAtFixedRate(object : TimerTask() {
+            override fun run() {
+                // Update UI
+                time++
 
-            runOnUiThread {
-                if (isRunning) {
-                    // Update TextViews
+                val milli_second = time % 100
+                val second = (time / 100) % 60
+                val minute = (time / 6000) % 60
+                val maxTime = 0
+
+                runOnUiThread  {
+                    if (isRunning) {
+                        // Update TextViews
+                        tv_millisecond.text = String.format(",%02d", milli_second)
+                        tv_second.text = String.format(":%02d", second)
+                        tv_minute.text = String.format("%02d", minute)
+
+                        // Update progress bar
+                        val progress = (time * 100 / maxTime).toInt()
+                        progressBar.progress = progress
+                    }
                 }
             }
-        }
+        }, 0, 10)
     }
 
     private fun pause() {
         btn_start.text = getString(R.string.btn_start)
-        btn_start.setBackgroundColor(getColor(R.color.button))
+        btn_start.setBackgroundColor(ContextCompat.getColor(this, R.color.btn_start))
 
         isRunning = false
         timer?.cancel()
@@ -105,7 +137,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         timer?.cancel()
 
         btn_start.text = getString(R.string.btn_start)
-        btn_start.setBackgroundColor(getColor(R.color.btn_start))
+        btn_start.setBackgroundColor(ContextCompat.getColor(this, R.color.btn_start))
         isRunning = false
 
         time = 0

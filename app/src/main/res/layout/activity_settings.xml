@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/button11"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="로그아웃"
@@ -27,6 +28,7 @@
 
     <Button
         android:id="@+id/btn_calendar"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="캘린더"
@@ -36,6 +38,7 @@
 
     <Button
         android:id="@+id/btn_timer"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="타이머"
@@ -46,6 +49,7 @@
 
     <Button
         android:id="@+id/btn_settings"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="설정"
@@ -69,6 +73,7 @@
 
     <Button
         android:id="@+id/button7"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="200dp"
@@ -81,6 +86,7 @@
 
     <Button
         android:id="@+id/button9"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="200dp"
@@ -93,6 +99,7 @@
 
     <Button
         android:id="@+id/button10"
+        android:backgroundTint="@color/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="앱 정보"

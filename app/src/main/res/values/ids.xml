@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="goalsettingcalendarBtn" type="id" />
+    <item name="textViewDate" type="id" />
+    <item name="textViewVerse" type="id" />
+    <item name="btn_goalAdd" type="id" />
 </resources>
