@@ -75,7 +75,7 @@ class goalsetting: AppCompatActivity() {
 
         goalSettingCalendarButton.setOnClickListener {
             // ImageButton를 숨깁니다.
-            goalSettingCalendarButton.visibility = View.GONE
+            goalSettingCalendarButton.visibility = View.INVISIBLE
 
             val intent = Intent(this, goalsetting::class.java)
             startActivity(intent)
@@ -150,7 +150,7 @@ class goalsetting: AppCompatActivity() {
         val (minAmount, maxAmount) = calculateDepositRange(days)
 
         // 사용자가 목표 기간을 선택한 후 계산된 범위로 editText3에 텍스트 설정
-        editText3.setText("최소 금액: $minAmount 원, 최대 금액: $maxAmount 원")
+        editText3.setText("최소 금액: $minAmount 원, \n최대 금액: $maxAmount 원")
     }
 
     // 일 수에 따라 최소 및 최대 금액을 계산하는 함수

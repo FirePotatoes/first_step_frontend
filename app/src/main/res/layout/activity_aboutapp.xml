@@ -27,15 +27,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/settingIcon"
         app:layout_constraintStart_toEndOf="@+id/settingIcon" />
 <!--    앱정보-->
+
     <TextView
         android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
         android:text="계정관리"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/settingIcon" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
     <View
         android:id="@+id/divider2"
@@ -69,11 +72,12 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:layout_weight="1"
         android:background="@color/grey"
-        app:layout_constraintBottom_toTopOf="@+id/textView41"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingTitleView"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -93,11 +97,13 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
         android:text="개발자 정보"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="234dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <TextView
         android:id="@+id/textView27"
@@ -112,8 +118,8 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
         android:text="- 프론트엔드"
         android:textSize="18sp"
         android:textStyle="bold"

@@ -73,7 +73,7 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="150dp"
-        android:layout_height="50sp"
+        android:layout_height="60sp"
         android:hint="날짜를 선택해주세요"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
@@ -86,6 +86,8 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="60dp"
         android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="number"
         android:hint="계좌번호를 입력해주세요"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="@+id/categoryComboBox2"
@@ -96,7 +98,7 @@
     <EditText
         android:id="@+id/editText3"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="60dp"
         android:layout_marginEnd="32dp"
         android:hint=""

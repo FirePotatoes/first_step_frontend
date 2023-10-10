@@ -224,8 +224,8 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
 
         time = 0
 //        tv_millisecond.text = ",00"
-        tv_second.text = "00"
-        tv_minute.text = "00"
+        tv_second.text = ".00"
+        tv_minute.text = ":00"
         tv_hour.text = "00"
     }
 
