@@ -5,4 +5,18 @@
     <string name="btn_start">시작</string>
     <string name="btn_pause">일시정지</string>
     <string name="btn_refresh">초기화</string>
+    <string name="_01">+ 목표 추가</string>
+    <string name="_02">*목표 설정 후 30분 이내에 입금하시지 않으면 목표설정이 취소됩니다.</string>
+    <string name="_03">완료</string>
+    <string name="_04">기업은행 1111223333444 버킷랩</string>
+    <string name="_05">입금계좌:</string>
+    <string name="_06">달력으로 날짜를 선택해주세요</string>
+    <string name="_07">계좌번호를 입력해주세요</string>
+    <string name="_08">하루목표시간</string>
+    <string name="_09">예치금</string>
+    <string name="_10">목표 기간</string>
+    <string name="_11">-선택해주세요</string>
+    <string name="_12">-선택해주세요</string>
+    <string name="_13">환불계좌</string>
+
 </resources>
