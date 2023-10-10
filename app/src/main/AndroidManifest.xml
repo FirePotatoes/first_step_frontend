@@ -43,6 +43,9 @@
             android:name=".aboutapp"
             android:exported="false" />
         <activity
+            android:name=".goalsetting"
+            android:exported="false" />
+        <activity
             android:name=".termsofuse"
             android:exported="false" />
         <activity
@@ -53,9 +56,6 @@
             android:exported="false" />
         <activity
             android:name=".calendar"
-            android:exported="false" />
-        <activity
-            android:name=".goalsetting"
             android:exported="false" />
         <activity
             android:name=".ranking"
