@@ -23,7 +23,6 @@ class goalsetting: AppCompatActivity() {
     private lateinit var dateTextView: TextView
     private lateinit var hoursSpinner: Spinner
     private lateinit var depositTextView: TextView
-    private lateinit var refundAccountSpinner: Spinner
 
     private lateinit var editText: EditText
     private lateinit var editText3: EditText
@@ -57,8 +56,6 @@ class goalsetting: AppCompatActivity() {
 
         // Calendar 초기화
         val calendar = Calendar.getInstance()
-
-
 
         // DatePickerDialog에서 시작 날짜를 설정
         val datePickerDialog = DatePickerDialog(
@@ -104,7 +101,7 @@ class goalsetting: AppCompatActivity() {
             ) {
                 val selectedHours = position + 1
                 // 선택한 시간을 텍스트뷰에 표시
-                depositTextView.text = "선택한 시간: $selectedHours 시간"
+                //depositTextView.text = "선택한 시간: $selectedHours 시간"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -170,37 +167,38 @@ class goalsetting: AppCompatActivity() {
                 minAmount = 7000
                 maxAmount = 20000
             }
-
-            days >= 90 -> {
                 // 3개월 이상인 경우
-                if (days < 180) {
+                days >= 31 && days <= 180 -> {
                     // 3개월
                     minAmount = 10000
                     maxAmount = 30000
-                } else if (days < 270) {
+                }
+                days >= 181 && days <= 270 -> {
                     // 6개월
                     minAmount = 15000
                     maxAmount = 40000
-                } else if (days < 365) {
+                }
+                days >= 271 && days <= 365 -> {
                     // 9개월
                     minAmount = 17000
                     maxAmount = 50000
-                } else {
-                    // 12개월 이상
+                }
+                days <= 366 -> {
+
+                // 12개월 이상
                     minAmount = 20000
                     maxAmount = 60000
                 }
+
+                else -> {
+                    // 다른 범위에 속하지 않는 경우
+                    minAmount = 0
+                    maxAmount = 0
+                }
             }
 
-            else -> {
-                // 다른 범위에 속하지 않는 경우
-                minAmount = 0
-                maxAmount = 0
-            }
+            return Pair(minAmount, maxAmount)
         }
-
-        return Pair(minAmount, maxAmount)
-    }
 
     // 'goalSettingToTimer' 함수 내에서 호출되는 부분 수정
     private fun goalSettingToTimer() {
