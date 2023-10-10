@@ -1,7 +1,6 @@
 package com.example.firststep
 
 import android.app.DatePickerDialog
-import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -38,7 +37,7 @@ class goalsetting: AppCompatActivity() {
 
 
         // XML 요소에 대한 참조 가져오기
-        goalSettingCalendarButton = findViewById(R.id.btn_goalsettingcalendar)
+        goalSettingCalendarButton = findViewById(R.id.btn_goalSettingCalendar)
         dateTextView = findViewById(R.id.editText)
         hoursSpinner = findViewById(R.id.categoryComboBox)
         depositTextView = findViewById(R.id.editText3)
@@ -59,16 +58,14 @@ class goalsetting: AppCompatActivity() {
         val calendar = Calendar.getInstance()
 
 
-
-        // DatePickerDialog에서 시작 날짜를 설정
+// DatePickerDialog에서 시작 날짜를 설정
         val datePickerDialog = DatePickerDialog(
             this,
             DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
                 calendar.set(year, monthOfYear, dayOfMonth)
                 startDate = calendar.time
 
-                // 두 번째 DatePickerDialog를 표시
-                showEndDatePicker()
+                // 시작 날짜를 선택한 후에 종료 날짜 선택을 표시 (showEndDatePicker 함수 호출 제거)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -76,6 +73,8 @@ class goalsetting: AppCompatActivity() {
         )
 
         datePickerDialog.show()
+
+
 
         goalSettingCalendarButton.setOnClickListener {
             // ImageButton를 숨깁니다.
@@ -110,12 +109,15 @@ class goalsetting: AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 // 아무것도 선택되지 않았을 때 처리
             }
+
+
+
         }
 
         // 예치금과 환불 계좌 스피너 설정은 마찬가지로 수행할 수 있습니다.
 
         val btnCopy: ImageView = findViewById(R.id.btn_copy)
-        val textView3: TextView = findViewById(R.id.textView3)
+        val textView3: TextView = findViewById(R.id.myAccountTextView)
 
         btnCopy.setOnClickListener {
             val accountNumber = textView3.text.toString()
@@ -204,7 +206,7 @@ class goalsetting: AppCompatActivity() {
 
     // 'goalSettingToTimer' 함수 내에서 호출되는 부분 수정
     private fun goalSettingToTimer() {
-        val button = findViewById<Button>(R.id.btn_goalsettingcomplete)
+        val button = findViewById<Button>(R.id.btn_goalSettingComplete)
         button.setOnClickListener {
             // editText3에 표시된 내용을 가져와서 파싱
             val depositRangeText = editText3.text.toString()
@@ -285,5 +287,10 @@ class goalsetting: AppCompatActivity() {
     // 예치금이 유효한지 확인하는 함수
     private fun isValidDeposit(depositAmount: Int, minAmount: Int, maxAmount: Int): Boolean {
         return depositAmount >= minAmount && depositAmount <= maxAmount
+    }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
     }
 }

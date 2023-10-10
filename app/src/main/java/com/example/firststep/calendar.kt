@@ -22,11 +22,11 @@ class calendar : AppCompatActivity() {
     lateinit var str: String
     lateinit var CalendarView: CalendarView
     lateinit var btn_update: Button
-    lateinit var btn_delete:Button
-    lateinit var saveBtn:Button
+    lateinit var btn_delete: Button
+    lateinit var saveBtn: Button
     lateinit var diaryTextView: TextView
-    lateinit var diaryContent:TextView
-    lateinit var title:TextView
+    lateinit var diaryContent: TextView
+    lateinit var title: TextView
     lateinit var contextEditText: EditText
 
 
@@ -36,16 +36,16 @@ class calendar : AppCompatActivity() {
         setContentView(R.layout.activity_calendar)
 
         // UI값 생성
-        CalendarView=findViewById(R.id.CalendarView)
-        diaryTextView=findViewById(R.id.diaryTextView)
-        saveBtn=findViewById(R.id.saveBtn)
-        btn_delete=findViewById(R.id.btn_delete)
-        btn_update=findViewById(R.id.btn_update)
-        diaryContent=findViewById(R.id.diaryContent)
-        title=findViewById(R.id.title)
-        contextEditText=findViewById(R.id.contextEditText)
+        CalendarView = findViewById(R.id.CalendarView)
+        diaryTextView = findViewById(R.id.diaryTextView)
+        saveBtn = findViewById(R.id.saveBtn)
+        btn_delete = findViewById(R.id.btn_delete)
+        btn_update = findViewById(R.id.btn_update)
+        diaryContent = findViewById(R.id.diaryContent)
+        title = findViewById(R.id.title)
+        contextEditText = findViewById(R.id.contextEditText)
 
-        title.text = "달력 일기장"
+        title.text = "캘린더"
 
         CalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             diaryTextView.visibility = View.VISIBLE
@@ -75,30 +75,29 @@ class calendar : AppCompatActivity() {
     }
 
 
-
-private fun goSettingsButton() {
-    val button = findViewById<Button>(R.id.btn_settings)
-    button.setOnClickListener {
-        val intent = Intent(this,settings::class.java)
-        startActivity(intent)
+    private fun goSettingsButton() {
+        val button = findViewById<Button>(R.id.btn_settings)
+        button.setOnClickListener {
+            val intent = Intent(this, settings::class.java)
+            startActivity(intent)
+        }
     }
-}
 
-private fun goTimerButton() {
-    val button = findViewById<Button>(R.id.btn_timer)
-    button.setOnClickListener {
-        val intent = Intent(this,timerActivity::class.java)
-        startActivity(intent)
+    private fun goTimerButton() {
+        val button = findViewById<Button>(R.id.btn_timer)
+        button.setOnClickListener {
+            val intent = Intent(this, timerActivity::class.java)
+            startActivity(intent)
+        }
     }
-}
 
-private fun goCalendarButton() {
-    val button = findViewById<Button>(R.id.btn_calendar)
-    button.setOnClickListener {
-        val intent = Intent(this,calendar::class.java)
-        startActivity(intent)
+    private fun goCalendarButton() {
+        val button = findViewById<Button>(R.id.btn_calendar)
+        button.setOnClickListener {
+            val intent = Intent(this, calendar::class.java)
+            startActivity(intent)
+        }
     }
-}
 
     // 달력 내용 조회, 수정
     fun checkDay(cYear: Int, cMonth: Int, cDay: Int, userID: String) {
@@ -163,6 +162,7 @@ private fun goCalendarButton() {
             e.printStackTrace()
         }
     }
+
     override fun onPause() {
         super.onPause()
         overridePendingTransition(0, 0) // 애니메이션 비활성화

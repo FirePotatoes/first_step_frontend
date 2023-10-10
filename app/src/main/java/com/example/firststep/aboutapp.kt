@@ -1,7 +1,8 @@
 package com.example.firststep
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class aboutapp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
