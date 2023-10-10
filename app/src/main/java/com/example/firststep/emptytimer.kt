@@ -43,6 +43,10 @@ class emptytimer : AppCompatActivity() {
         goTimerButton()
     }
 
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
+    }
     private fun getDayOfYear(): Int {
         val calendar = Calendar.getInstance()
         return calendar.get(Calendar.DAY_OF_YEAR)

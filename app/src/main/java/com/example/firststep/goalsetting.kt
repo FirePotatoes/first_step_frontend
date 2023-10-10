@@ -46,6 +46,11 @@ class goalsetting : AppCompatActivity() {
         */
         goalsettingToTimeractivity()
     }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
+    }
     private fun goalsettingToTimeractivity() {
         val button = findViewById<Button>(R.id.btn_goalsettingcomplete)
         button.setOnClickListener {

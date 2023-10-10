@@ -1,16 +1,12 @@
 package com.example.firststep
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.provider.Settings
-import android.service.notification.NotificationListenerService.Ranking
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -23,10 +19,11 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btn_start: Button
     private lateinit var btn_refresh: Button
     private lateinit var btn_ranking: Button
+    private lateinit var tv_hour: TextView
     private lateinit var tv_minute: TextView
     private lateinit var tv_second: TextView
-    private lateinit var tv_millisecond: TextView
     private lateinit var progressBar: ProgressBar
+
     private val bibleVerses = listOf(
         "너희 피가 나를 위하여 속죄물이 될 것이요, 너희 땅도 속죄물이 될 것이니라. [레위기 17:11]",
         "내가 가리켜 네게 가르칠 길은 너희 행할 길이요, 내가 너희를 눈으로 주시고 너희 발을 꾸짖을 대로 보이리라. [시편 32:8]",
@@ -36,26 +33,31 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         "나의 하나님이 그리스도 예수 안에서 영광 가운데 그 풍성한 대로 너희 모든 쓸 것을 채우시리라. [빌 4:19]",
         "너희 염려를 다 주께 맡기라 이는 그가 너희를 돌보심이라. [벧전 5:7]",
         "내가 네게 명령한 것이 아니냐 강하고 담대하라 두려워하지 말며 놀라지 말라 네가 어디로 가든지 네 하나님 여호와가 너와 함께 하느니라 하시니라. [수 1:9]",
-    )
+
+        )
 
     private var isRunning = false
     private var timer: Timer? = null
     private var time = 0
+    private var progress = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
         btn_start = findViewById(R.id.btn_start)
         btn_refresh = findViewById(R.id.btn_refresh)
+        tv_hour = findViewById(R.id.tv_hour)
         tv_minute = findViewById(R.id.tv_minute)
         tv_second = findViewById(R.id.tv_second)
-        tv_millisecond = findViewById(R.id.tv_millisecond)
 
         progressBar = findViewById(R.id.progress_bar)
 
         btn_start.setOnClickListener(this)
         btn_refresh.setOnClickListener(this)
+
 
         // 날짜 표시
         val textViewDate = findViewById<TextView>(R.id.textViewDate)
@@ -73,7 +75,6 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         goTimerButton()
     }
 
-
     private fun getDayOfYear(): Int {
         val calendar = Calendar.getInstance()
         return calendar.get(Calendar.DAY_OF_YEAR)
@@ -85,6 +86,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         val date = calendar.time
         return dateFormat.format(date)
     }
+
     private fun goSettingsButton() {
         val button = findViewById<Button>(R.id.btn_settings)
         button.setOnClickListener {
@@ -142,16 +144,18 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
                 // Update UI
                 time++
 
-                val milli_second = time % 100
+//                val millisecond = time % 100
                 val second = (time / 100) % 60
                 val minute = (time / 6000) % 60
+                val hour = (time / 360000)
 
                 runOnUiThread  {
                     if (isRunning) {
                         // Update TextViews
-                        tv_millisecond.text = String.format(".%02d", milli_second)
-                        tv_second.text = String.format(":%02d", second)
-                        tv_minute.text = String.format("%02d", minute)
+//                        tv_millisecond.text = String.format(".%02d", millisecond)
+                        tv_hour.text = String.format("%02d", hour)
+                        tv_minute.text = String.format(":%02d", minute)
+                        tv_second.text = String.format(".%02d", second)
 
                         // Update progress bar
                         val progress = (time * 100 / maxTime).toInt()
@@ -179,13 +183,20 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         isRunning = false
 
         time = 0
-        tv_millisecond.text = ".00"
-        tv_second.text = ":00"
+//        tv_millisecond.text = ",00"
+        tv_second.text = "00"
         tv_minute.text = "00"
+        tv_hour.text = "00"
     }
 
     override fun onDestroy() {
         timer?.cancel()
         super.onDestroy()
     }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
+    }
+
 }

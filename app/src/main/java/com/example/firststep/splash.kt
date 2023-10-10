@@ -21,5 +21,10 @@ class splash : AppCompatActivity() {
                 finish()
             }
         }, 2500) // 3초 후(3000) 스플래시 화면을 닫습니다
+
+    }
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
     }
 }

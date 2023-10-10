@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".timerActivity">
+    tools:context=".timerActivity"
+    tools:ignore="MissingClass">
 
     <TextView
         android:id="@+id/bibleView"
@@ -14,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/boxborder"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -27,7 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:backgroundTint="@color/text"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,69 +37,69 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_minute"
+        android:id="@+id/tv_hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00"
+        android:textColor="@color/black"
         android:textSize="60sp"
-        android:textColor="@color/text"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_second"
-        app:layout_constraintEnd_toStartOf="@+id/tv_second"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_minute"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":00"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_second"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_hour"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=":00"
-        android:textSize="60sp"
-        android:textColor="@color/text"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv_millisecond"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_minute"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
-
-
-    <TextView
-        android:id="@+id/tv_millisecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text=".00"
-        android:textColor="@color/text"
+        android:textColor="@color/black"
         android:textSize="36sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_second"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tv_second" />
+        app:layout_constraintStart_toEndOf="@+id/tv_minute"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_start"
-        android:layout_width="160dp"
-        android:layout_height="98dp"
-        android:backgroundTint="@color/button"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="@color/purple"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:text="@string/btn_start"
-        android:textSize="60sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_second"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_refresh"
-        android:layout_width="wrap_content"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/toomyeong"
         android:text="@string/btn_refresh"
-        android:backgroundTint="@color/button"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -121,12 +121,12 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="188dp"
         android:text="하루 목표시간 3시간"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -177,7 +177,7 @@
         android:text="캘린더"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/bottomBar"
         app:layout_constraintTop_toTopOf="@+id/bottomBar" />
@@ -192,7 +192,7 @@
         android:textStyle="bold"
         android:text="타이머"
         android:textColor="@color/purple"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
         app:layout_constraintStart_toEndOf="@+id/btn_calendar"
         app:layout_constraintTop_toTopOf="@+id/bottomBar"
@@ -208,12 +208,9 @@
         android:textStyle="bold"
         android:text="설정"
         android:textColor="@color/purple"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_timer"
         app:layout_constraintTop_toTopOf="@+id/bottomBar" />
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
