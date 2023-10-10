@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="bankList">
+        <item>==은행을 선택해주세요.==</item>
         <item>IBK기업</item>
         <item>NH농협</item>
         <item>카카오뱅크</item>

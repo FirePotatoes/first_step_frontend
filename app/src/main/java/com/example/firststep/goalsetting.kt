@@ -1,140 +1,289 @@
 package com.example.firststep
 
-
 import android.app.DatePickerDialog
+import android.app.Dialog
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageButton
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.DatePicker
-import com.example.firststep.R.id.btn_goalsettingcalendar
-import java.util.Calendar
-import java.util.GregorianCalendar
+import android.os.Handler
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
-class goalsetting : AppCompatActivity() {
+
+class goalsetting: AppCompatActivity() {
+
+
+    private lateinit var goalSettingCalendarButton: ImageButton
+    private lateinit var dateTextView: TextView
+    private lateinit var hoursSpinner: Spinner
+    private lateinit var depositTextView: TextView
+    private lateinit var refundAccountSpinner: Spinner
+
+    private lateinit var editText: EditText
+    private lateinit var editText3: EditText
+    private lateinit var startDate: Date
+    private lateinit var endDate: Date
+
+    private var userEnteredAmount: Int = 0 // 사용자가 입력한 금액을 저장할 변수
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goalsetting)
-        /*
-                val goalsettingcalendarButton = findViewById<Button>(btn_goalsettingcalendar)
 
-                var startDate = ""
 
-                goalsettingcalendarButton.setOnClickListener {
-                    val today = GregorianCalendar()
-                    val year = today.get(Calendar.YEAR)
-                    val month = today.get(Calendar.MONTH)
-                    val day = today.get(Calendar.DATE)
+        // XML 요소에 대한 참조 가져오기
+        goalSettingCalendarButton = findViewById(R.id.btn_goalsettingcalendar)
+        dateTextView = findViewById(R.id.editText)
+        hoursSpinner = findViewById(R.id.categoryComboBox)
+        depositTextView = findViewById(R.id.editText3)
+        editText = findViewById(R.id.editText)
+        editText3 = findViewById(R.id.editText3)
 
-                    val dlg = DatePickerDialog(this, object : DatePickerDialog.OnDateSetListener {
-                        override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                            TODO("Not yet implemented")
-                            //2021 + 20
-                            //5
-                            //20
+        val bankSpinner = findViewById<Spinner>(R.id.categoryComboBox2)
 
-                            //startDate = "${year} + ${month} + ${dayOfMonth}"
+        // 은행 목록을 가져와서 어댑터에 설정
+        val bankNames = resources.getStringArray(R.array.bankList)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, bankNames)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-                            startDate = year.toString() + (month + 1).toString() + dayOfMonth.toString()
-                            Log.d("day : ", startDate)
-                        }
-                    }, year, month, day)
+        // Spinner에 어댑터 설정
+        bankSpinner.adapter = adapter
 
-                }
-        */
-        goalsettingToTimeractivity()
-    }
+        // Calendar 초기화
+        val calendar = Calendar.getInstance()
 
-    override fun onPause() {
-        super.onPause()
-        overridePendingTransition(0, 0) // 애니메이션 비활성화
-    }
-    private fun goalsettingToTimeractivity() {
-        val button = findViewById<Button>(R.id.btn_goalsettingcomplete)
-        button.setOnClickListener {
-            val intent = Intent(this,timerActivity::class.java)
+
+
+        // DatePickerDialog에서 시작 날짜를 설정
+        val datePickerDialog = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                calendar.set(year, monthOfYear, dayOfMonth)
+                startDate = calendar.time
+
+                // 두 번째 DatePickerDialog를 표시
+                showEndDatePicker()
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+
+        datePickerDialog.show()
+
+        goalSettingCalendarButton.setOnClickListener {
+            // ImageButton를 숨깁니다.
+            goalSettingCalendarButton.visibility = View.GONE
+
+            val intent = Intent(this, goalsetting::class.java)
             startActivity(intent)
         }
+
+        // 하루 목표 시간 선택 스피너 설정
+        val hoursData = mutableListOf<String>()
+        for (i in 1..24) {
+            hoursData.add("$i 시간")
+        }
+        val hoursAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hoursData)
+        hoursAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        hoursSpinner.adapter = hoursAdapter
+
+        // 스피너 아이템 선택 이벤트 처리
+        hoursSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedHours = position + 1
+                // 선택한 시간을 텍스트뷰에 표시
+                depositTextView.text = "선택한 시간: $selectedHours 시간"
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // 아무것도 선택되지 않았을 때 처리
+            }
+        }
+
+        // 예치금과 환불 계좌 스피너 설정은 마찬가지로 수행할 수 있습니다.
+
+        val btnCopy: ImageView = findViewById(R.id.btn_copy)
+        val textView3: TextView = findViewById(R.id.textView3)
+
+        btnCopy.setOnClickListener {
+            val accountNumber = textView3.text.toString()
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            if (clipboard != null) {
+                val clip = ClipData.newPlainText("계좌번호", accountNumber)
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(applicationContext, "계좌번호를 복사했습니다.", Toast.LENGTH_SHORT).show()
+
+                // 3초 후에 토스트 메시지를 사라지게 만들기
+                Handler().postDelayed({
+                    Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT).cancel()
+                }, 3000)
+            } else {
+                val errorMessage = "클립보드 관리자를 사용할 수 없습니다. 앱 권한 또는 장치 설정을 확인하세요."
+                Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
+            }
+        }
+
+        showDatePickerDialog()
+        goalSettingToTimer()
+    }
+
+
+    // 사용자가 목표 기간을 선택한 후 호출되는 함수
+    private fun onGoalPeriodSelected(startDate: Date, endDate: Date) {
+        // 날짜 간의 차이를 계산하여 일 수를 얻습니다.
+        val dayInMillis = 24 * 60 * 60 * 1000
+        val days = ((endDate.time - startDate.time) / dayInMillis).toInt()
+
+        // 최소 및 최대 금액 계산
+        val (minAmount, maxAmount) = calculateDepositRange(days)
+
+        // 사용자가 목표 기간을 선택한 후 계산된 범위로 editText3에 텍스트 설정
+        editText3.setText("최소 금액: $minAmount 원, 최대 금액: $maxAmount 원")
+    }
+
+    // 일 수에 따라 최소 및 최대 금액을 계산하는 함수
+    private fun calculateDepositRange(days: Int): Pair<Int, Int> {
+        val minAmount: Int
+        val maxAmount: Int
+
+        when {
+            days >= 3 && days <= 15 -> {
+                // 3일부터 15일까지의 경우
+                minAmount = 3000
+                maxAmount = 10000
+            }
+
+            days >= 16 && days <= 30 -> {
+                // 16일부터 30일까지의 경우
+                minAmount = 7000
+                maxAmount = 20000
+            }
+
+            days >= 90 -> {
+                // 3개월 이상인 경우
+                if (days < 180) {
+                    // 3개월
+                    minAmount = 10000
+                    maxAmount = 30000
+                } else if (days < 270) {
+                    // 6개월
+                    minAmount = 15000
+                    maxAmount = 40000
+                } else if (days < 365) {
+                    // 9개월
+                    minAmount = 17000
+                    maxAmount = 50000
+                } else {
+                    // 12개월 이상
+                    minAmount = 20000
+                    maxAmount = 60000
+                }
+            }
+
+            else -> {
+                // 다른 범위에 속하지 않는 경우
+                minAmount = 0
+                maxAmount = 0
+            }
+        }
+
+        return Pair(minAmount, maxAmount)
+    }
+
+    // 'goalSettingToTimer' 함수 내에서 호출되는 부분 수정
+    private fun goalSettingToTimer() {
+        val button = findViewById<Button>(R.id.btn_goalsettingcomplete)
+        button.setOnClickListener {
+            // editText3에 표시된 내용을 가져와서 파싱
+            val depositRangeText = editText3.text.toString()
+            val (minAmount, maxAmount) = parseDepositRange(depositRangeText)
+
+            // 사용자가 입력한 금액이 유효한지 확인하고 범위 내에 있는지 검사
+            if (isValidDeposit(userEnteredAmount, minAmount, maxAmount)) {
+                // 조건에 맞으면 TimerActivity로 이동
+                val intent = Intent(this, timerActivity::class.java)
+                startActivity(intent)
+            } else {
+                // 조건에 맞지 않으면 오류 메시지 표시
+                val errorMessage =
+                    "금액 범위를 벗어났습니다. 최소 금액: $minAmount 원, 최대 금액: $maxAmount 원"
+                Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // 'goalSettingToTimer' 함수 내에서 호출되는 부분 수정
+    private fun parseDepositRange(depositRangeText: String): Pair<Int, Int> {
+        val regex = Regex("(\\d+) 원, (\\d+) 원")
+        val matchResult = regex.find(depositRangeText)
+
+        return if (matchResult != null) {
+            val (minAmountStr, maxAmountStr) = matchResult.destructured
+            Pair(minAmountStr.toInt(), maxAmountStr.toInt())
+        } else {
+            Pair(0, 0)
+        }
+    }
+
+    // DatePickerDialog 표시
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { _, selectedYear, selectedMonth, selectedDay ->
+                // 선택한 날짜를 텍스트뷰에 표시
+                dateTextView.text = "$selectedYear-$selectedMonth-$selectedDay"
+            },
+            year, month, day
+        )
+        datePickerDialog.show()
+    }
+
+    // 종료 날짜 선택 DatePickerDialog 표시
+    private fun showEndDatePicker() {
+        val calendar = Calendar.getInstance()
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                calendar.set(year, monthOfYear, dayOfMonth)
+                endDate = calendar.time
+
+                // 선택한 날짜를 editText에 표시
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val startDateStr = dateFormat.format(startDate)
+                val endDateStr = dateFormat.format(endDate)
+                editText.setText("$startDateStr ~ $endDateStr")
+
+                // 예치금 계산 및 설정
+                onGoalPeriodSelected(startDate, endDate)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+
+        datePickerDialog.show()
+    }
+
+    // 예치금이 유효한지 확인하는 함수
+    private fun isValidDeposit(depositAmount: Int, minAmount: Int, maxAmount: Int): Boolean {
+        return depositAmount >= minAmount && depositAmount <= maxAmount
     }
 }
-
-
-
-
-
-/*
-    //콤보 박스 시간
-
-
-
-    //Spinner 에 들어갈 데이터
-    var data = listOf("- 하루 목표 시간을 선택하세요 - ","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24")
-
-    //데이터와 스피터를 연결 시켜줄 adapter를 만들어 준다.
-    //ArrayAdapter의 두 번쨰 인자는 스피너 목록에 아이템을 그려줄 레이아웃을 지정하여 줍니다.
-    var adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,data)
-    //activity_main에서 만들어 놓은 spinner에 adapter 연결하여 줍니다.
-    spinner.adapter = adapter
-    //데이터가 들어가 있는 spinner 에서 선택한 아이템을 가져옵니다.
-    spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-
-
-        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            //position은 선택한 아이템의 위치를 넘겨주는 인자입니다.
-            result.text = data.get(position)
-        }
-        override fun onNothingSelected(parent: AdapterView<*>?) {
-
-        }
-
-    }*/
-/*
-//목표추가 시간 설정 부분
-    fun showTimeSettingPopup() {
-
-        val dialog = AlertDialog.Builder(context).create()
-
-        val edialog: LayoutInflater = LayoutInflater.from(context)
-        val mView: View = edialog.inflate(R.layout.popup_settime, null)
-
-        val minute: NumberPicker = mView.findViewById(R.id.numberPicker_min)
-        val second: NumberPicker = mView.findViewById(R.id.numberPicker_sec)
-
-        val cancel: Button = mView.findViewById<Button>(R.id.btn_settime_no)
-        val start: Button = mView.findViewById<Button>(R.id.btn_settime_ok)
-        // editText 설정해제
-        minute.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        second.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        //최소값 설정
-        minute.minValue = 0
-        second.minValue = 0
-
-        //최대값 설정
-        minute.maxValue = 30
-        second.maxValue = 59
-        //기본값 설정
-        minute.value = 1
-        second.value = 0
-
-
-        //취소버튼
-        cancel.setOnClickListener {
-            dialog.dismiss()
-            dialog.cancel()
-        }
-        start.setOnClickListener {
-            Toast.makeText(context, "${minute.value}분 ${second.value}초", Toast.LENGTH_SHORT).show()
-            (activity as PageActivity).startExcercise(exname)
-            dialog.dismiss()
-        }
-
-        dialog.setView(mView)
-
-        dialog.create()
-        dialog.show()
-        dialog.window!!.setLayout(750, WindowManager.LayoutParams.WRAP_CONTENT)
-    }
-
-*/

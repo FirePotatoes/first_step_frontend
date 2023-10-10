@@ -21,8 +21,8 @@ class calendar : AppCompatActivity() {
     lateinit var fname: String
     lateinit var str: String
     lateinit var CalendarView: CalendarView
-    lateinit var updateBtn: Button
-    lateinit var deleteBtn:Button
+    lateinit var btn_update: Button
+    lateinit var btn_delete:Button
     lateinit var saveBtn:Button
     lateinit var diaryTextView: TextView
     lateinit var diaryContent:TextView
@@ -39,8 +39,8 @@ class calendar : AppCompatActivity() {
         CalendarView=findViewById(R.id.CalendarView)
         diaryTextView=findViewById(R.id.diaryTextView)
         saveBtn=findViewById(R.id.saveBtn)
-        deleteBtn=findViewById(R.id.deleteBtn)
-        updateBtn=findViewById(R.id.updateBtn)
+        btn_delete=findViewById(R.id.btn_delete)
+        btn_update=findViewById(R.id.btn_update)
         diaryContent=findViewById(R.id.diaryContent)
         title=findViewById(R.id.title)
         contextEditText=findViewById(R.id.contextEditText)
@@ -52,8 +52,8 @@ class calendar : AppCompatActivity() {
             saveBtn.visibility = View.VISIBLE
             contextEditText.visibility = View.VISIBLE
             diaryContent.visibility = View.INVISIBLE
-            updateBtn.visibility = View.INVISIBLE
-            deleteBtn.visibility = View.INVISIBLE
+            btn_update.visibility = View.INVISIBLE
+            btn_delete.visibility = View.INVISIBLE
             diaryTextView.text = String.format("%d / %d / %d", year, month + 1, dayOfMonth)
             contextEditText.setText("")
             checkDay(year, month, dayOfMonth, userID)
@@ -63,8 +63,8 @@ class calendar : AppCompatActivity() {
             saveDiary(fname)
             contextEditText.visibility = View.INVISIBLE
             saveBtn.visibility = View.INVISIBLE
-            updateBtn.visibility = View.VISIBLE
-            deleteBtn.visibility = View.VISIBLE
+            btn_update.visibility = View.VISIBLE
+            btn_delete.visibility = View.VISIBLE
             str = contextEditText.text.toString()
             diaryContent.text = str
             diaryContent.visibility = View.VISIBLE
@@ -116,21 +116,21 @@ private fun goCalendarButton() {
             diaryContent.visibility = View.VISIBLE
             diaryContent.text = str
             saveBtn.visibility = View.INVISIBLE
-            updateBtn.visibility = View.VISIBLE
-            deleteBtn.visibility = View.VISIBLE
-            updateBtn.setOnClickListener {
+            btn_update.visibility = View.VISIBLE
+            btn_delete.visibility = View.VISIBLE
+            btn_update.setOnClickListener {
                 contextEditText.visibility = View.VISIBLE
                 diaryContent.visibility = View.INVISIBLE
                 contextEditText.setText(str)
                 saveBtn.visibility = View.VISIBLE
-                updateBtn.visibility = View.INVISIBLE
-                deleteBtn.visibility = View.INVISIBLE
+                btn_update.visibility = View.INVISIBLE
+                btn_delete.visibility = View.INVISIBLE
                 diaryContent.text = contextEditText.text
             }
-            deleteBtn.setOnClickListener {
+            btn_delete.setOnClickListener {
                 diaryContent.visibility = View.INVISIBLE
-                updateBtn.visibility = View.INVISIBLE
-                deleteBtn.visibility = View.INVISIBLE
+                btn_update.visibility = View.INVISIBLE
+                btn_delete.visibility = View.INVISIBLE
                 contextEditText.setText("")
                 contextEditText.visibility = View.VISIBLE
                 saveBtn.visibility = View.VISIBLE
@@ -138,8 +138,8 @@ private fun goCalendarButton() {
             }
             if (diaryContent.text == null) {
                 diaryContent.visibility = View.INVISIBLE
-                updateBtn.visibility = View.INVISIBLE
-                deleteBtn.visibility = View.INVISIBLE
+                btn_update.visibility = View.INVISIBLE
+                btn_delete.visibility = View.INVISIBLE
                 diaryTextView.visibility = View.VISIBLE
                 saveBtn.visibility = View.VISIBLE
                 contextEditText.visibility = View.VISIBLE
