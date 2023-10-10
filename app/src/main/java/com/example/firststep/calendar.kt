@@ -163,7 +163,10 @@ private fun goCalendarButton() {
             e.printStackTrace()
         }
     }
-
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
+    }
 
     // 달력 내용 추가
     @SuppressLint("WrongConstant")

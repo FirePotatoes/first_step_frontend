@@ -6,11 +6,11 @@
 
 
 
-    <color name="btn_start">#000000</color>
+    <color name="btn_start">#8465F3</color>
     <color name="btn_pause">#000000</color>
     <color name="btn_refresh">#000000</color>
     <color name="btn_calendar">#E91E63</color>
-    <color name="button">#E91E63</color>
+    <color name="button">#FF0000</color>
     <color name= "text">#FF0000</color>
     <color name= "red">#FFD700</color>
     <color name= "grey">#858585</color>
