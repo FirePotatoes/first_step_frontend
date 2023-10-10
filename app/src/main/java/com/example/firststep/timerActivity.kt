@@ -88,6 +88,14 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun goRanking3Button() {
+        val imageView = findViewById<ImageView>(R.id.trophyIcon)
+        imageView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun goRanking1Button() {
         val textView = findViewById<TextView>(R.id.rankingInfoFirst)
         textView.setOnClickListener {
@@ -104,13 +112,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun goRanking3Button() {
-        val imageView = findViewById<ImageView>(R.id.trophyIcon)
-        imageView.setOnClickListener {
-            val intent = Intent(this,ranking::class.java)
-            startActivity(intent)
-        }
-    }
+
 
     private fun getDayOfYear(): Int {
         val calendar = Calendar.getInstance()
