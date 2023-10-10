@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -73,6 +74,42 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         goCalendarButton()
         goSettingsButton()
         goTimerButton()
+        goRanking0Button()
+        goRanking1Button()
+        goRanking2Button()
+        goRanking3Button()
+    }
+
+    private fun goRanking0Button() {
+        val textView = findViewById<TextView>(R.id.goRanking)
+        textView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goRanking1Button() {
+        val textView = findViewById<TextView>(R.id.rankingInfoFirst)
+        textView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goRanking2Button() {
+        val textView = findViewById<TextView>(R.id.rankingInfoMe)
+        textView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goRanking3Button() {
+        val imageView = findViewById<ImageView>(R.id.trophyIcon)
+        imageView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getDayOfYear(): Int {

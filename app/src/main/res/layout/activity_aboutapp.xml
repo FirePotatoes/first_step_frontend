@@ -4,17 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".aboutapp">
+    tools:context=".aboutapp"
+    tools:ignore="MissingConstraints">
+
+    <ImageView
+        android:id="@+id/settingIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/icon_setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/settingTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="앱정보"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/settingIcon"
+        app:layout_constraintStart_toEndOf="@+id/settingIcon" />
+<!--    앱정보-->
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="앱 정보"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/settingIcon"
+        app:layout_constraintTop_toBottomOf="@+id/settingIcon" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 앱버전"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView41"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+
+<!--    개발자 정보-->
+
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="개발자 정보"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <TextView
         android:id="@+id/textView27"
@@ -22,25 +82,47 @@
         android:layout_height="wrap_content"
         android:text="팀 불타는 감자들"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="프론트엔드"
-        android:textSize="30sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="- 프론트엔드"
+        android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="196dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView27"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="마다현\n정은우"
+        android:text="마다현 \t\t\t 정은우"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="240dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="- 백엔드"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView29"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="변하연 \t\t\t 조연우 \t\t\t 최병준 \t\t\t 권택윤"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 </androidx.constraintlayout.widget.ConstraintLayout>

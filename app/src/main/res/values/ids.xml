@@ -4,4 +4,5 @@
     <item name="textViewDate" type="id" />
     <item name="bibleView" type="id" />
     <item name="btn_goalAdd" type="id" />
+    <item name="divider1" type="id" />
 </resources>

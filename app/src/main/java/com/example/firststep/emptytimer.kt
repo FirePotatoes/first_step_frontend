@@ -25,7 +25,6 @@ class emptytimer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emptytimer)
-        emptytimerToGoalsetting()
 
         // 날짜 표시
         val textViewDate = findViewById<TextView>(R.id.textViewDate)
@@ -38,6 +37,7 @@ class emptytimer : AppCompatActivity() {
         val selectedVerse = bibleVerses[dayOfYear % bibleVerses.size]
         textViewVerse.text = "$selectedVerse"
 
+        emptyTimerToGoalsetting()
         goCalendarButton()
         goSettingsButton()
         goTimerButton()
@@ -59,7 +59,7 @@ class emptytimer : AppCompatActivity() {
         return dateFormat.format(date)
     }
 
-    private fun emptytimerToGoalsetting() {
+    private fun emptyTimerToGoalsetting() {
         val button = findViewById<Button>(R.id.btn_goalAdd)
         button.setOnClickListener {
             val intent = Intent(this, goalsetting::class.java)
