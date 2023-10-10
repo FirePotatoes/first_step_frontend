@@ -15,6 +15,7 @@ class signup : AppCompatActivity() {
         signUpButton()
 
 
+
         val bankSpinner = findViewById<Spinner>(R.id.bankSpinner)
 
         // 은행 목록을 가져와서 어댑터에 설정
@@ -24,6 +25,11 @@ class signup : AppCompatActivity() {
 
         // Spinner에 어댑터 설정
         bankSpinner.adapter = adapter
+    }
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0) // 애니메이션 비활성화
     }
         private fun signUpButton() {
             val button = findViewById<Button>(R.id.btn_signup)

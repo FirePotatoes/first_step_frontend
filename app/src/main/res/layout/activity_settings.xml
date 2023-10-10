@@ -19,14 +19,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767" />
 
-    <Space
+    <View
         android:id="@+id/bottomBar"
         android:layout_width="411dp"
-        android:layout_height="59dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:backgroundTint="#858585"
-        android:background="@drawable/bar_color"
+        android:background="@drawable/bottomboxborder"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -38,7 +37,8 @@
         android:backgroundTint="@color/toomyeong"
         android:gravity="center_horizontal"
         android:text="캘린더"
-        android:textColor="@color/black"
+        android:textColor="@color/purple"
+        android:textStyle="bold"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/bottomBar"
@@ -51,8 +51,9 @@
         android:layout_marginStart="24dp"
         android:backgroundTint="@color/toomyeong"
         android:gravity="center_vertical"
+        android:textStyle="bold"
         android:text="타이머"
-        android:textColor="@color/black"
+        android:textColor="@color/purple"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
         app:layout_constraintStart_toEndOf="@+id/btn_calendar"
@@ -66,8 +67,9 @@
         android:layout_marginStart="30dp"
         android:backgroundTint="@color/toomyeong"
         android:gravity="center_vertical"
+        android:textStyle="bold"
         android:text="설정"
-        android:textColor="@color/black"
+        android:textColor="@color/purple"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_timer"
