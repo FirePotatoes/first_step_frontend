@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -25,7 +26,6 @@ class emptytimer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_emptytimer)
-        emptytimerToGoalsetting()
 
         // 날짜 표시
         val textViewDate = findViewById<TextView>(R.id.textViewDate)
@@ -38,11 +38,29 @@ class emptytimer : AppCompatActivity() {
         val selectedVerse = bibleVerses[dayOfYear % bibleVerses.size]
         textViewVerse.text = "$selectedVerse"
 
+        emptyTimerToGoalsetting()
         goCalendarButton()
         goSettingsButton()
         goTimerButton()
+        goRanking0Button()
+        goRanking3Button()
     }
 
+    private fun goRanking0Button() {
+        val textView = findViewById<TextView>(R.id.goRanking)
+        textView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun goRanking3Button() {
+        val imageView = findViewById<ImageView>(R.id.trophyIcon)
+        imageView.setOnClickListener {
+            val intent = Intent(this,ranking::class.java)
+            startActivity(intent)
+        }
+    }
     override fun onPause() {
         super.onPause()
         overridePendingTransition(0, 0) // 애니메이션 비활성화
@@ -59,7 +77,7 @@ class emptytimer : AppCompatActivity() {
         return dateFormat.format(date)
     }
 
-    private fun emptytimerToGoalsetting() {
+    private fun emptyTimerToGoalsetting() {
         val button = findViewById<Button>(R.id.btn_goalAdd)
         button.setOnClickListener {
             val intent = Intent(this, goalsetting::class.java)
