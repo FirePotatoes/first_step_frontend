@@ -19,7 +19,6 @@ class settings : AppCompatActivity() {
         goCalendarButton()
         goTimerButton()
         goSettingsButton()
-        goTermsOfUSeButton()
         goAccountButton()
         goInfoButton()
     }
@@ -41,13 +40,6 @@ class settings : AppCompatActivity() {
         }
     }
 
-    private fun goTermsOfUSeButton() {
-        val button = findViewById<Button>(R.id.btn_termsofuse)
-        button.setOnClickListener {
-            val intent = Intent(this,termsofuse::class.java)
-            startActivity(intent)
-        }
-    }
 
 //    하단바
     private fun goSettingsButton() {

@@ -26,7 +26,6 @@ class calendar : AppCompatActivity() {
     lateinit var saveBtn: Button
     lateinit var diaryTextView: TextView
     lateinit var diaryContent: TextView
-    lateinit var title: TextView
     lateinit var contextEditText: EditText
 
 
@@ -42,10 +41,8 @@ class calendar : AppCompatActivity() {
         btn_delete = findViewById(R.id.btn_delete)
         btn_update = findViewById(R.id.btn_update)
         diaryContent = findViewById(R.id.diaryContent)
-        title = findViewById(R.id.title)
         contextEditText = findViewById(R.id.contextEditText)
 
-        title.text = "캘린더"
 
         CalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             diaryTextView.visibility = View.VISIBLE
