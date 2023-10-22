@@ -52,7 +52,7 @@
         android:id="@+id/btn_copy"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginStart="-15dp"
+        android:layout_marginStart="-9dp"
         android:src="@drawable/icon_copy"
         app:layout_constraintBottom_toBottomOf="@+id/myAccountTextView"
         app:layout_constraintEnd_toEndOf="@+id/btn_goalSettingComplete"

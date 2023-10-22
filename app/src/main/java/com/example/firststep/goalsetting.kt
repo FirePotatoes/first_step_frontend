@@ -101,6 +101,7 @@ class goalsetting: AppCompatActivity() {
             ) {
                 val selectedHours = position + 1
                 // 선택한 시간을 텍스트뷰에 표시
+
                 //depositTextView.text = "선택한 시간: $selectedHours 시간"
             }
 
