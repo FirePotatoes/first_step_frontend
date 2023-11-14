@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserGoalInfo">
+
+
+    <TextView
+        android:id="@+id/usergoalinfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="목표 내역"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goalstartdate_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="목표 시작 날짜"
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalinfoTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goalfinishdate_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="끝나는 날짜"
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/settingsmoney_TextView"
+        app:layout_constraintStart_toEndOf="@+id/goalstartdate_TextView"
+        app:layout_constraintTop_toTopOf="@+id/goalstartdate_TextView" />
+
+    <TextView
+        android:id="@+id/settingsmoney_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="금액"
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/goalfinishdate_TextView"
+        app:layout_constraintTop_toTopOf="@+id/goalfinishdate_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalfirst_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="1."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalinfoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/goalstartdate_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalsecond_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="2."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalfirst_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalfirst_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalthird_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="3."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalsecond_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalsecond_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalfourth_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="4."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalthird_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalthird_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalfiveth_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="5."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalfourth_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalfourth_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalsixth_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="6."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalfiveth_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalfiveth_TextView" />
+
+    <TextView
+        android:id="@+id/usergoalseventh_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="7."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalsixth_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalsixth_TextView" />
+
+    <TextView
+        android:id="@+id/usergoaleight_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:text="8."
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/usergoalseventh_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/usergoalseventh_TextView" />
+
+    <View
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/bottomboxborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_horizontal"
+        android:text="캘린더"
+        android:textColor="@color/purple"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bottomBar"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar" />
+
+    <Button
+        android:id="@+id/btn_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:text="타이머"
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/btn_calendar"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/toomyeong"
+        android:gravity="center_vertical"
+        android:text="설정"
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_timer"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar" />
+
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="52dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalfirst_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider11"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalsecond_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalthird_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider13"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalfourth_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider17"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoaleight_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider16"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalseventh_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalfiveth_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/divider15"
+        android:layout_width="300dp"
+        android:layout_height="0.1dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="56dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/usergoalsixth_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
