@@ -10,6 +10,28 @@
 
 
     <TextView
+        android:id="@+id/rankingInfoFirst2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:text="1등 닉네임 200:37:21"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/rankingInfoMe2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/rankingInfoMe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginBottom="75dp"
+        android:text="기록 없음"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_settings"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/bibleView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
