@@ -175,7 +175,7 @@ class timerActivity : AppCompatActivity(), View.OnClickListener {
         progressBar.visibility = View.VISIBLE
         progressBar.progress = 0
 
-        val maxTime = 6000
+        val maxTime = 18000
         // 타이머가 60초 동안 실행되어야 한다면 6000으로 설정 목표 추가에서 설정한 값이 여기로 온다
 
         timer = Timer()

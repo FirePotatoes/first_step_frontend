@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/toomyeong"
         android:text="@string/btn_refresh"
-        android:textColor="@color/purple"
+        android:textColor="@color/toomyeong"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,17 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="하루 목표시간 3시간"
+        android:text="3시간"
+        android:textSize="20sp"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toTopOf="@+id/progress_bar"
+        app:layout_constraintStart_toEndOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="하루 목표시간   "
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintStart_toStartOf="@+id/progress_bar" />
@@ -168,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginBottom="75dp"
-        android:text="n등 닉네임 147:12:49"
+        android:text="기록없음"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/btn_settings"

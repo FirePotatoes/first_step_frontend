@@ -21,6 +21,7 @@ class settings : AppCompatActivity() {
         goSettingsButton()
         goAccountButton()
         goInfoButton()
+        logoutButton()
     }
 
 
@@ -39,6 +40,15 @@ class settings : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun logoutButton() {
+        val button = findViewById<Button>(R.id.btn_logout)
+        button.setOnClickListener {
+            val intent = Intent(this,login::class.java)
+            startActivity(intent)
+        }
+    }
+
 
 
 //    하단바
